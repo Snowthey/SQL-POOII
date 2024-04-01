@@ -71,7 +71,7 @@ public class ConexaoBancoDeDados {
         IniciarConexao();
 
         if(conexao != null){
-            PreparedStatement comandoupdate = conexao.prepareStatement("UPDATE matricula SET endereco = ?, telefone = ?, nome = ?, ContatoEmergencia = ?, TelefoneEmergencia = ?, TiposSangue = ?, TiposFator = ?, TiposCurso = ?, Cpf = ? WHERE id= ?");
+            PreparedStatement comandoupdate = conexao.prepareStatement("UPDATE matricula SET endereco = ?, telefone = ?, nome = ?, ContatoEmergencia = ?, TelefoneEmergencia = ?, TiposSangue = ?, TiposFator = ?, TiposCurso = ?, Cpf = ? WHERE id = ? ");
             comandoupdate.setString(1, ObjetoPessoa.getEndereco());
             comandoupdate.setString(2, ObjetoPessoa.getTelefone());
             comandoupdate.setString(3, ObjetoPessoa.getNome());

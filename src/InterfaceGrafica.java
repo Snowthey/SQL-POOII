@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.*;
+import javax.swing.JOptionPane;
 
 public class InterfaceGrafica extends JFrame implements ActionListener {
     ConexaoBancoDeDados objBancoDeDados;
@@ -176,10 +177,12 @@ public class InterfaceGrafica extends JFrame implements ActionListener {
             try {
                 ConexaoBancoDeDados objBancoDeDados = new ConexaoBancoDeDados();
                 String mensagem = objBancoDeDados.InserirDados(objeto, tiposSangue, tiposFator, tiposCurso);
-
                 lblMensagem.setText(mensagem);
+                JOptionPane.showMessageDialog(this, "Dados inseridos com sucesso!");
+
             } catch (SQLException e1) {
                 e1.printStackTrace();
+                JOptionPane.showMessageDialog(this, "Erro ao inserir dados. Tente novamente!");
             }
         }
 
@@ -193,8 +196,11 @@ public class InterfaceGrafica extends JFrame implements ActionListener {
                 int id = Integer.parseInt(txtid.getText());
                 String mensagem = objBancoDeDados.RemoverDados(id);
                 lblMensagem.setText(mensagem);
+                JOptionPane.showMessageDialog(this, "Dados removidos com sucesso!");
+
             } catch (SQLException e1) {
                 e1.printStackTrace();
+                JOptionPane.showMessageDialog(this, "Erro ao remover dados. Tente novamente!");
             }
         }
 
@@ -208,8 +214,10 @@ public class InterfaceGrafica extends JFrame implements ActionListener {
                 int id = Integer.parseInt(txtid.getText());
                 String mensagem = objBancoDeDados.AlterarDados(objeto, id);
                 lblMensagem.setText(mensagem);
+                JOptionPane.showMessageDialog(this, "Dados alterados com sucesso!");
             } catch (SQLException e1) {
                 e1.printStackTrace();
+                JOptionPane.showMessageDialog(this, "Erro ao alterar dados. Tente novamente!");
             }
         }
 
